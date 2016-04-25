@@ -1,8 +1,49 @@
 Rails.application.routes.draw do
-  get 'demo/index'
-get 'demo/hello'
-  get 'demo/other_hello'
-  get 'demo/lynda'
+  # get 'admin_users/index'
+  # get 'admin_users/new'
+  # get 'admin_users/edit'
+  # get 'admin_users/delete'
+
+  # get 'access/index'
+  # get 'access/login'
+
+  root "demo#index"
+
+  get 'admin', :to => "access#index"
+
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
+# Don't need these auto-generated routes.
+# We are using default route.
+
+  # get 'sections/index'
+  # get 'sections/show'
+  # get 'sections/new'
+  # get 'sections/edit'
+  # get 'sections/delete'
+  # get 'pages/index'
+  # get 'pages/show'
+  # get 'pages/new'
+  # get 'pages/edit'
+  # get 'pages/delete'
+  # get 'subjects/index'
+  # get 'subjects/show'
+  # get 'subjects/new'
+  # get 'subjects/edit'
+  # get 'subjects/delete'
+  # root 'demo#index'
+  #root "public#index"
+
+  get 'show/:permalink', :to => 'public#show'
+  get 'admin', :to => "access#index"
+
+  #get "demo/index"
+
+
+  #get 'demo/index'
+#get 'demo/hello'
+  #get 'demo/other_hello'
+  #get 'demo/lynda'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
