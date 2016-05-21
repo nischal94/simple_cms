@@ -1,6 +1,9 @@
 class Subject < ActiveRecord::Base
+  # could delete related pages automatically
+  # whenever a subject is deleted:
+  # has_many :pages, :dependent => :destroy
 
-  has_many :pages
+   has_many :pages
 
    acts_as_list
   # Don't need to validate (in most cases):

@@ -4187,3 +4187,1642 @@ Started GET "/admin" for ::1 at 2016-04-25 21:38:40 +0530
 Processing by AccessController#index as HTML
   Rendered access/index.html.erb within layouts/admin (1.0ms)
 Completed 200 OK in 64ms (Views: 63.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 01:11:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SubjectsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (834.8ms)
+Completed 200 OK in 1274ms (Views: 1151.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/footer_gradient.png" for ::1 at 2016-04-26 01:11:39 +0530
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 01:12:06 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (63.0ms)
+Completed 200 OK in 195ms (Views: 137.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 01:12:33 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (25.0ms)
+Completed 200 OK in 141ms (Views: 137.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects/show/2" for ::1 at 2016-04-26 01:12:45 +0530
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered subjects/show.html.erb within layouts/admin (3.0ms)
+Completed 200 OK in 117ms (Views: 114.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 01:12:59 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (19.0ms)
+Completed 200 OK in 90ms (Views: 87.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 01:13:15 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (9.0ms)
+Completed 200 OK in 109ms (Views: 104.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/sections?page_id=2" for ::1 at 2016-04-26 01:13:18 +0530
+Processing by SectionsController#index as HTML
+  Parameters: {"page_id"=>"2"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ?  ORDER BY sections.position ASC[0m  [["page_id", 2]]
+  Rendered sections/index.html.erb within layouts/admin (31.0ms)
+Completed 200 OK in 151ms (Views: 145.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 01:13:40 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 121ms (Views: 116.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/edit/2?subject_id=2" for ::1 at 2016-04-26 01:13:43 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages"
+  Rendered application/_error_messages.html.erb (20.0ms)
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (260.9ms)
+  Rendered pages/edit.html.erb within layouts/admin (345.0ms)
+Completed 200 OK in 439ms (Views: 432.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/pages/update/2?subject_id=2" for ::1 at 2016-04-26 01:13:49 +0530
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"csupbLZY7JlprKba+RfhVoj9/2FzNQNPi5maoaq0koFO8ZrpcYmpPX/RlEJRRumrfMnjdRRes+JDmqAXoDLETg==", "page"=>{"subject_id"=>"2", "name"=>"Nischal", "permalink"=>"", "position"=>"1", "visible"=>"0"}, "commit"=>"Update Page", "subject_id"=>"2", "id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mPage Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "pages" WHERE ("pages"."permalink" = '{id}-nischal' AND "pages"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "pages" SET "permalink" = ?, "updated_at" = ? WHERE "pages"."id" = ?  [["permalink", "{id}-nischal"], ["updated_at", "2016-04-25 19:43:49.331495"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ? AND (position = 1)[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "subjects" SET "updated_at" = '2016-04-25 19:43:49.339740' WHERE "subjects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (144.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/pages/show/2?subject_id=2
+Completed 302 Found in 455ms (ActiveRecord: 145.7ms)
+
+
+Started GET "/pages/show/2?subject_id=2" for ::1 at 2016-04-26 01:13:49 +0530
+Processing by PagesController#show as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered pages/show.html.erb within layouts/admin (2.1ms)
+Completed 200 OK in 84ms (Views: 80.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 01:13:58 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 105ms (Views: 97.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 01:14:04 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (20.0ms)
+Completed 200 OK in 100ms (Views: 95.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/subjects/show/2" for ::1 at 2016-04-26 01:14:07 +0530
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered subjects/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 68ms (Views: 65.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 01:14:08 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (18.0ms)
+Completed 200 OK in 86ms (Views: 84.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects/show/2" for ::1 at 2016-04-26 01:14:17 +0530
+Processing by SubjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered subjects/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 100ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 01:14:25 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (17.0ms)
+Completed 200 OK in 81ms (Views: 80.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-26 14:27:08 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PublicController#index as HTML
+  Rendered public/index.html.erb within layouts/public (36.2ms)
+Completed 500 Internal Server Error in 1994ms (ActiveRecord: 1.0ms)
+
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "G:/MyProjects/simple_cms/app/views"
+):
+    10: </div>
+    11: <div id="main">
+    12:   <div id="navigation">
+    13:     <%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+    14:   </div>
+    15:   <div id="content">
+    16:     <%= yield %>
+  app/views/layouts/public.html.erb:13:in `_app_views_layouts_public_html_erb__742868798_30068244'
+
+
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (2935.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (4249.3ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (8754.7ms)
+
+
+Started GET "/" for ::1 at 2016-04-26 14:32:13 +0530
+Processing by PublicController#index as HTML
+  Rendered public/index.html.erb within layouts/public (0.0ms)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "G:/MyProjects/simple_cms/app/views"
+):
+    10: </div>
+    11: <div id="main">
+    12:   <div id="navigation">
+    13:     <%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+    14:   </div>
+    15:   <div id="content">
+    16:     <%= yield %>
+  app/views/layouts/public.html.erb:13:in `_app_views_layouts_public_html_erb__742868798_66250296'
+
+
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (2757.8ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (3372.1ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (7037.9ms)
+
+
+Started GET "/admin" for ::1 at 2016-04-26 14:36:49 +0530
+Processing by AccessController#index as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/access/login" for ::1 at 2016-04-26 14:36:49 +0530
+Processing by AccessController#login as HTML
+  Rendered access/login.html.erb within layouts/admin (3.0ms)
+Completed 200 OK in 111ms (Views: 108.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/footer_gradient.png" for ::1 at 2016-04-26 14:36:50 +0530
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 14:38:03 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (150.1ms)
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 4.0ms)
+
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "G:/MyProjects/simple_cms/app/views"
+):
+    10: </div>
+    11: <div id="main">
+    12:   <div id="navigation">
+    13:     <%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+    14:   </div>
+    15:   <div id="content">
+    16:     <%= yield %>
+  app/views/layouts/public.html.erb:13:in `_app_views_layouts_public_html_erb__742868798_66250296'
+
+
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (2383.6ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (2175.7ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (4939.6ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:23:11 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (31.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (41.0ms)
+Completed 200 OK in 255ms (Views: 205.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:23:24 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (16.9ms)
+Completed 200 OK in 114ms (Views: 106.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:23:26 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 118ms (Views: 110.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:23:31 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 118ms (Views: 110.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:23:34 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (16.2ms)
+Completed 200 OK in 115ms (Views: 108.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:23:35 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 120ms (Views: 112.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:23:36 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (16.8ms)
+Completed 200 OK in 124ms (Views: 116.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-26 15:23:56 +0530
+Processing by PublicController#index as HTML
+  Rendered public/index.html.erb within layouts/public (0.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (19.0ms)
+Completed 200 OK in 125ms (Views: 121.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:24:02 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 114ms (Views: 108.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:24:04 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (6.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (17.0ms)
+Completed 200 OK in 121ms (Views: 111.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:24:16 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (7.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 168ms (Views: 156.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:40:11 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (21.0ms)
+Completed 200 OK in 172ms (Views: 161.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/admin.self-e5283861916fe2a71f16b9a979e58b260f3250c35e6f298e428a384e5b24e73b.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/access.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/public.self-1af7925b328e6236b27c8a860eef70a3f44f667bde05b95e893399db57e5d455.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/admin_users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/demo.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/pages.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/sections.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/assets/subjects.self-b60acab5af8d245ed2b3012f77d11d8d207d8eada27756badaf4ef05770d60f6.css?body=1" for ::1 at 2016-04-26 15:40:12 +0530
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:40:17 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.9ms)
+Completed 200 OK in 119ms (Views: 112.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for ::1 at 2016-04-26 15:41:31 +0530
+Processing by AccessController#index as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/access/login" for ::1 at 2016-04-26 15:41:32 +0530
+Processing by AccessController#login as HTML
+  Rendered access/login.html.erb within layouts/admin (2.0ms)
+Completed 200 OK in 85ms (Views: 84.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/access/attempt_login" for ::1 at 2016-04-26 15:41:35 +0530
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yM6pw0WPMHZj2tnwq48J5D7Qn1xt4K7FAQ3V7KC2tBqUDByDSSNNxhH24EfeJ05BSP5/TxZHB2GzhLw7yYBtkQ==", "username"=>"k", "password"=>"[FILTERED]", "commit"=>"Log In"}
+Redirected to http://localhost:3000/access/login
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/access/login" for ::1 at 2016-04-26 15:41:35 +0530
+Processing by AccessController#login as HTML
+  Rendered access/login.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 69ms (Views: 67.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/access/attempt_login" for ::1 at 2016-04-26 15:41:46 +0530
+Processing by AccessController#attempt_login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"woJf5t+XNBkdSgZAQtxuM2asrpRqNLaf6AGaL8JrTKKeQOqm0ztJqW9mP/c3dCmWEIJOhxGTHztaiPP4q12VKQ==", "username"=>"kskoglund", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[35mAdminUser Load (1.0ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."username" = ?  ORDER BY "admin_users"."id" ASC LIMIT 1  [["username", "kskoglund"]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 198ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for ::1 at 2016-04-26 15:41:46 +0530
+Processing by AccessController#index as HTML
+  Rendered access/index.html.erb within layouts/admin (2.0ms)
+Completed 200 OK in 70ms (Views: 69.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:42:07 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (30.0ms)
+Completed 200 OK in 163ms (Views: 158.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:42:11 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (22.0ms)
+Completed 200 OK in 93ms (Views: 90.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:43:05 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (15.0ms)
+Completed 200 OK in 131ms (Views: 104.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:43:09 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (24.0ms)
+Completed 200 OK in 105ms (Views: 101.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects/edit/2" for ::1 at 2016-04-26 15:43:11 +0530
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  Rendered application/_error_messages.html.erb (75.0ms)
+  Rendered subjects/_form.html.erb (314.8ms)
+  Rendered subjects/edit.html.erb within layouts/admin (333.8ms)
+Completed 200 OK in 425ms (Views: 417.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:43:13 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (24.0ms)
+Completed 200 OK in 98ms (Views: 96.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:43:16 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 91ms (Views: 85.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages/new?subject_id=2" for ::1 at 2016-04-26 15:43:21 +0530
+Processing by PagesController#new as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (34.0ms)[0m  SELECT COUNT(*) FROM "pages"
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (24.0ms)
+  Rendered pages/new.html.erb within layouts/admin (41.0ms)
+Completed 200 OK in 150ms (Views: 108.9ms | ActiveRecord: 35.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:43:25 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 85ms (Views: 77.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages/edit/2?subject_id=2" for ::1 at 2016-04-26 15:43:28 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages"
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (22.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (39.0ms)
+Completed 200 OK in 116ms (Views: 106.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/pages/update/2?subject_id=2" for ::1 at 2016-04-26 15:43:48 +0530
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZR0D8h+m1+VugolP3rItw9NuXxXCFF8v3V0gTzK8vq0537ayEwqqVRyusPirGmpmpUC/Brmz9otv1EmYW4pnJg==", "page"=>{"subject_id"=>"2", "name"=>"Initial Subject", "permalink"=>"{id}-nischal", "position"=>"1", "visible"=>"0"}, "commit"=>"Update Page", "subject_id"=>"2", "id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mPage Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "pages" WHERE ("pages"."permalink" = '{id}-nischal' AND "pages"."id" != 2) LIMIT 1[0m
+  [1m[35mSQL (34.0ms)[0m  UPDATE "pages" SET "name" = ?, "updated_at" = ? WHERE "pages"."id" = ?  [["name", "Initial Subject"], ["updated_at", "2016-04-26 10:13:49.152672"], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ? AND (position = 1)[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "subjects" SET "updated_at" = '2016-04-26 10:13:49.198698' WHERE "subjects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (97.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/pages/show/2?subject_id=2
+Completed 302 Found in 400ms (ActiveRecord: 134.1ms)
+
+
+Started GET "/pages/show/2?subject_id=2" for ::1 at 2016-04-26 15:43:49 +0530
+Processing by PagesController#show as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered pages/show.html.erb within layouts/admin (2.0ms)
+Completed 200 OK in 113ms (Views: 105.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:43:52 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (13.0ms)
+Completed 200 OK in 87ms (Views: 81.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/edit/2?subject_id=2" for ::1 at 2016-04-26 15:44:13 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY position ASC
+  Rendered pages/_form.html.erb (31.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (57.0ms)
+Completed 200 OK in 175ms (Views: 163.6ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/pages/update/2?subject_id=2" for ::1 at 2016-04-26 15:44:15 +0530
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T7rIYAnGdQwExqA6v96F+Mf4VLRZt83C3FFtQnDH2oMTeH0gBWoIvHbqmY3KdsJdsda0pyIQZGZu2ASVGfEDCA==", "page"=>{"subject_id"=>"2", "name"=>"Initial Subject", "permalink"=>"{id}-nischal", "position"=>"1", "visible"=>"1"}, "commit"=>"Update Page", "subject_id"=>"2", "id"=>"2"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPage Exists (1.0ms)[0m  SELECT  1 AS one FROM "pages" WHERE ("pages"."permalink" = '{id}-nischal' AND "pages"."id" != 2) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "pages" SET "visible" = ?, "updated_at" = ? WHERE "pages"."id" = ?[0m  [["visible", "t"], ["updated_at", "2016-04-26 10:14:15.612398"], ["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ? AND (position = 1)  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (0.0ms)[0m  UPDATE "subjects" SET "updated_at" = '2016-04-26 10:14:15.622404' WHERE "subjects"."id" = ?  [["id", 2]]
+  [1m[36m (133.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/pages/show/2?subject_id=2
+Completed 302 Found in 166ms (ActiveRecord: 136.8ms)
+
+
+Started GET "/pages/show/2?subject_id=2" for ::1 at 2016-04-26 15:44:15 +0530
+Processing by PagesController#show as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered pages/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 73ms (Views: 67.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:44:17 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (11.5ms)
+Completed 200 OK in 91ms (Views: 83.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-26 15:44:24 +0530
+Processing by PublicController#index as HTML
+  Rendered public/index.html.erb within layouts/public (0.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (19.0ms)
+Completed 200 OK in 104ms (Views: 99.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/show/%7Bid%7D-nischal" for ::1 at 2016-04-26 15:44:29 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"{id}-nischal"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "{id}-nischal"], ["visible", "t"]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 2], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (19.0ms)
+Completed 200 OK in 114ms (Views: 105.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:44:35 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (3.6ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.4ms)
+Completed 200 OK in 115ms (Views: 105.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:44:36 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.1ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (17.3ms)
+Completed 200 OK in 127ms (Views: 120.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show/%7Bid%7D-nischal" for ::1 at 2016-04-26 15:44:38 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"{id}-nischal"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "{id}-nischal"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 2], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 111ms (Views: 103.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:44:44 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (3.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (22.0ms)
+Completed 200 OK in 139ms (Views: 131.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:44:47 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (8.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (17.0ms)
+Completed 200 OK in 111ms (Views: 104.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin" for ::1 at 2016-04-26 15:44:58 +0530
+Processing by AccessController#index as HTML
+  Rendered access/index.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 78ms (Views: 76.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for ::1 at 2016-04-26 15:44:58 +0530
+Processing by AccessController#index as HTML
+  Rendered access/index.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 70ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:45:00 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (23.0ms)
+Completed 200 OK in 103ms (Views: 101.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:45:03 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (19.0ms)
+Completed 200 OK in 89ms (Views: 83.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages/edit/6?subject_id=3" for ::1 at 2016-04-26 15:45:12 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"3", "id"=>"6"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY position ASC
+  Rendered pages/_form.html.erb (21.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (37.0ms)
+Completed 200 OK in 113ms (Views: 101.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:45:14 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (21.8ms)
+Completed 200 OK in 97ms (Views: 91.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages/edit/6?subject_id=3" for ::1 at 2016-04-26 15:45:17 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"3", "id"=>"6"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY position ASC
+  Rendered pages/_form.html.erb (21.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (38.0ms)
+Completed 200 OK in 116ms (Views: 104.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:45:21 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (19.5ms)
+Completed 200 OK in 93ms (Views: 83.8ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:45:38 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (25.0ms)
+Completed 200 OK in 103ms (Views: 99.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects/edit/2" for ::1 at 2016-04-26 15:45:40 +0530
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  Rendered application/_error_messages.html.erb (0.0ms)
+  Rendered subjects/_form.html.erb (23.0ms)
+  Rendered subjects/edit.html.erb within layouts/admin (39.0ms)
+Completed 200 OK in 113ms (Views: 105.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:45:43 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (22.0ms)
+Completed 200 OK in 92ms (Views: 89.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects/edit/2" for ::1 at 2016-04-26 15:45:44 +0530
+Processing by SubjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  Rendered application/_error_messages.html.erb (0.0ms)
+  Rendered subjects/_form.html.erb (21.0ms)
+  Rendered subjects/edit.html.erb within layouts/admin (38.0ms)
+Completed 200 OK in 113ms (Views: 104.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:45:47 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (2.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (23.2ms)
+Completed 200 OK in 94ms (Views: 91.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:45:50 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (13.0ms)
+Completed 200 OK in 84ms (Views: 78.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:45:52 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (2.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (23.0ms)
+Completed 200 OK in 105ms (Views: 99.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:45:54 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (21.1ms)
+Completed 200 OK in 94ms (Views: 87.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pages/delete/6?subject_id=3" for ::1 at 2016-04-26 15:45:58 +0530
+Processing by PagesController#delete as HTML
+  Parameters: {"subject_id"=>"3", "id"=>"6"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered pages/delete.html.erb within layouts/admin (2.0ms)
+Completed 200 OK in 76ms (Views: 69.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pages/destroy/6?subject_id=3" for ::1 at 2016-04-26 15:46:00 +0530
+Processing by PagesController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zNPWrP3JMeWfqckk3f703J0OBNIv3+ihAdw3xIOs5cCQEWPs8WVMVe2F8JOoVrN56yDkwVR4QQWzVV4T6po8Sw==", "commit"=>"Delete Page", "subject_id"=>"3", "id"=>"6"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "admin_users_pages" WHERE "admin_users_pages"."page_id" = ?[0m  [["page_id", 6]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "pages" WHERE "pages"."id" = ?  [["id", 6]]
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "pages" SET position = (position - 1) WHERE "pages"."subject_id" = ? AND (position > 1)[0m  [["subject_id", 3]]
+  [1m[35mSection Load (1.0ms)[0m  SELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 6]]
+  [1m[36m (95.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/pages?subject_id=3
+Completed 302 Found in 169ms (ActiveRecord: 99.7ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:46:00 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 3]]
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 84ms (Views: 76.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:01 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (24.0ms)
+Completed 200 OK in 96ms (Views: 94.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=1" for ::1 at 2016-04-26 15:46:03 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"1"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 1]]
+  Rendered pages/index.html.erb within layouts/admin (14.0ms)
+Completed 200 OK in 84ms (Views: 77.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:05 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (23.0ms)
+Completed 200 OK in 100ms (Views: 97.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=1" for ::1 at 2016-04-26 15:46:07 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"1"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 1]]
+  Rendered pages/index.html.erb within layouts/admin (11.6ms)
+Completed 200 OK in 84ms (Views: 77.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:12 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (22.1ms)
+Completed 200 OK in 89ms (Views: 85.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:46:13 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (10.6ms)
+Completed 200 OK in 86ms (Views: 79.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:15 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (22.0ms)
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=1" for ::1 at 2016-04-26 15:46:17 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"1"}
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 1]]
+  Rendered pages/index.html.erb within layouts/admin (10.0ms)
+Completed 200 OK in 91ms (Views: 86.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:18 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (22.5ms)
+Completed 200 OK in 106ms (Views: 102.2ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:46:20 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (13.3ms)
+Completed 200 OK in 88ms (Views: 83.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:23 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (23.0ms)
+Completed 200 OK in 94ms (Views: 91.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=1" for ::1 at 2016-04-26 15:46:24 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"1"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1]]
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 1]]
+  Rendered pages/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 84ms (Views: 77.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:29 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (21.7ms)
+Completed 200 OK in 91ms (Views: 87.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/pages?subject_id=1" for ::1 at 2016-04-26 15:46:35 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"1"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 1]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 1]]
+  Rendered pages/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 95ms (Views: 84.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pages/edit/1?subject_id=1" for ::1 at 2016-04-26 15:46:37 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"1", "id"=>"1"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY position ASC
+  Rendered pages/_form.html.erb (22.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (39.0ms)
+Completed 200 OK in 118ms (Views: 108.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/pages/update/1?subject_id=1" for ::1 at 2016-04-26 15:46:46 +0530
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5i4cVO9EErfJyZFRi5bVXRh8tRLX22ItAypVswBqpfi67KkU4+hvB7vlqOb+PpL4blJVAax8y4mxozxkaVx8cw==", "page"=>{"subject_id"=>"1", "name"=>"Intro Physics", "permalink"=>"first", "position"=>"1", "visible"=>"1"}, "commit"=>"Update Page", "subject_id"=>"1", "id"=>"1"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPage Exists (1.0ms)[0m  SELECT  1 AS one FROM "pages" WHERE ("pages"."permalink" = 'first' AND "pages"."id" != 1) LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mUPDATE "pages" SET "name" = ?, "updated_at" = ? WHERE "pages"."id" = ?[0m  [["name", "Intro Physics"], ["updated_at", "2016-04-26 10:16:46.084542"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ? AND (position = 1)  [["subject_id", 1]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (1.0ms)[0m  UPDATE "subjects" SET "updated_at" = '2016-04-26 10:16:46.095027' WHERE "subjects"."id" = ?  [["id", 1]]
+  [1m[36m (160.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/pages/show/1?subject_id=1
+Completed 302 Found in 204ms (ActiveRecord: 167.2ms)
+
+
+Started GET "/pages/show/1?subject_id=1" for ::1 at 2016-04-26 15:46:46 +0530
+Processing by PagesController#show as HTML
+  Parameters: {"subject_id"=>"1", "id"=>"1"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pages/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 76ms (Views: 68.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=1" for ::1 at 2016-04-26 15:46:47 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"1"}
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 1]]
+  Rendered pages/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 89ms (Views: 83.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:46:51 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (22.0ms)
+Completed 200 OK in 93ms (Views: 88.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:46:53 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (13.0ms)
+Completed 200 OK in 85ms (Views: 78.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/edit/2?subject_id=2" for ::1 at 2016-04-26 15:46:57 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages"[0m
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY position ASC
+  Rendered pages/_form.html.erb (25.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (44.0ms)
+Completed 200 OK in 127ms (Views: 116.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/pages/update/2?subject_id=2" for ::1 at 2016-04-26 15:47:04 +0530
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vDgA19cldJcmbzWml3eceu5Xy4H/TpCwspk/3W6mxGfg+rWX24kJJ1RDDBHi39vfmHkrkoTpORQAEFYKB5Ad7A==", "page"=>{"subject_id"=>"2", "name"=>"Intro Maths", "permalink"=>"{id}-nischal", "position"=>"1", "visible"=>"1"}, "commit"=>"Update Page", "subject_id"=>"2", "id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mPage Exists (1.0ms)[0m  SELECT  1 AS one FROM "pages" WHERE ("pages"."permalink" = '{id}-nischal' AND "pages"."id" != 2) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "pages" SET "name" = ?, "updated_at" = ? WHERE "pages"."id" = ?[0m  [["name", "Intro Maths"], ["updated_at", "2016-04-26 10:17:04.754078"], ["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ? AND (position = 1)  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (0.0ms)[0m  UPDATE "subjects" SET "updated_at" = '2016-04-26 10:17:04.763927' WHERE "subjects"."id" = ?  [["id", 2]]
+  [1m[36m (231.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/pages/show/2?subject_id=2
+Completed 302 Found in 263ms (ActiveRecord: 234.3ms)
+
+
+Started GET "/pages/show/2?subject_id=2" for ::1 at 2016-04-26 15:47:05 +0530
+Processing by PagesController#show as HTML
+  Parameters: {"subject_id"=>"2", "id"=>"2"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered pages/show.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 85ms (Views: 77.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:47:06 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2]]
+  [1m[35mSubject Load (1.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (11.0ms)
+Completed 200 OK in 93ms (Views: 77.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:47:10 +0530
+Processing by SubjectsController#index as HTML
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "subjects"
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (27.0ms)
+Completed 200 OK in 97ms (Views: 96.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=2" for ::1 at 2016-04-26 15:47:12 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"2"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 2]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 2]]
+  Rendered pages/index.html.erb within layouts/admin (12.0ms)
+Completed 200 OK in 86ms (Views: 80.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:47:13 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (24.0ms)
+Completed 200 OK in 95ms (Views: 93.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:47:15 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 3]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?[0m  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (13.0ms)
+Completed 200 OK in 84ms (Views: 79.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/edit/5?subject_id=3" for ::1 at 2016-04-26 15:47:21 +0530
+Processing by PagesController#edit as HTML
+  Parameters: {"subject_id"=>"3", "id"=>"5"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "pages"
+  Rendered application/_error_messages.html.erb (0.0ms)
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT "subjects".* FROM "subjects"  ORDER BY position ASC[0m
+  Rendered pages/_form.html.erb (26.0ms)
+  Rendered pages/edit.html.erb within layouts/admin (44.0ms)
+Completed 200 OK in 124ms (Views: 113.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/pages/update/5?subject_id=3" for ::1 at 2016-04-26 15:47:27 +0530
+Processing by PagesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+Pw8y8FaFJ8EZXWxQP305NlGEOGUS31flaVN6OdM9o+kPomLzfZpL3ZJTAY1VbNBr2jw8u/s1PsnLCQ/jnovBA==", "page"=>{"subject_id"=>"3", "name"=>"Intro CS", "permalink"=>"third", "position"=>"1", "visible"=>"1"}, "commit"=>"Update Page", "subject_id"=>"3", "id"=>"5"}
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mPage Exists (0.0ms)[0m  [1mSELECT  1 AS one FROM "pages" WHERE ("pages"."permalink" = 'third' AND "pages"."id" != 5) LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "pages" SET "name" = ?, "updated_at" = ? WHERE "pages"."id" = ?  [["name", "Intro CS"], ["updated_at", "2016-04-26 10:17:27.654485"], ["id", 5]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ? AND (position = 1)[0m  [["subject_id", 3]]
+  [1m[35mSubject Load (0.0ms)[0m  SELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "subjects" SET "updated_at" = '2016-04-26 10:17:27.665492' WHERE "subjects"."id" = ?[0m  [["id", 3]]
+  [1m[35m (206.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/pages/show/5?subject_id=3
+Completed 302 Found in 243ms (ActiveRecord: 209.4ms)
+
+
+Started GET "/pages/show/5?subject_id=3" for ::1 at 2016-04-26 15:47:27 +0530
+Processing by PagesController#show as HTML
+  Parameters: {"subject_id"=>"3", "id"=>"5"}
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered pages/show.html.erb within layouts/admin (1.7ms)
+Completed 200 OK in 82ms (Views: 74.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages?subject_id=3" for ::1 at 2016-04-26 15:47:28 +0530
+Processing by PagesController#index as HTML
+  Parameters: {"subject_id"=>"3"}
+  [1m[36mSubject Load (1.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ?  ORDER BY pages.position ASC  [["subject_id", 3]]
+  [1m[36mSubject Load (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects" WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "sections" WHERE "sections"."page_id" = ?  [["page_id", 5]]
+  Rendered pages/index.html.erb within layouts/admin (15.0ms)
+Completed 200 OK in 95ms (Views: 89.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-26 15:47:30 +0530
+Processing by SubjectsController#index as HTML
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "subjects"[0m
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects"  ORDER BY subjects.position ASC
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?  [["subject_id", 3]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "pages" WHERE "pages"."subject_id" = ?[0m  [["subject_id", 1]]
+  Rendered subjects/index.html.erb within layouts/admin (24.3ms)
+Completed 200 OK in 97ms (Views: 93.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin" for ::1 at 2016-04-26 15:47:31 +0530
+Processing by AccessController#index as HTML
+  Rendered access/index.html.erb within layouts/admin (1.0ms)
+Completed 200 OK in 68ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-04-26 15:47:35 +0530
+Processing by PublicController#index as HTML
+  Rendered public/index.html.erb within layouts/public (0.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 103ms (Views: 99.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/show/%7Bid%7D-nischal" for ::1 at 2016-04-26 15:47:42 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"{id}-nischal"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "{id}-nischal"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 2], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (17.8ms)
+Completed 200 OK in 114ms (Views: 105.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:47:44 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.7ms)
+Completed 200 OK in 124ms (Views: 116.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:47:45 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (4.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (16.4ms)
+Completed 200 OK in 113ms (Views: 105.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/show/%7Bid%7D-nischal" for ::1 at 2016-04-26 15:56:13 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"{id}-nischal"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "{id}-nischal"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 2], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (20.0ms)
+Completed 200 OK in 143ms (Views: 133.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/show/third" for ::1 at 2016-04-26 15:56:14 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"third"}
+  [1m[35mPage Load (0.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "third"], ["visible", "t"]]
+  [1m[36mSection Load (1.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 5], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (3.0ms)
+  [1m[35mSubject Load (1.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (0.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (1.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (18.0ms)
+Completed 200 OK in 129ms (Views: 120.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/show/first" for ::1 at 2016-04-26 15:56:15 +0530
+Processing by PublicController#show as HTML
+  Parameters: {"permalink"=>"first"}
+  [1m[35mPage Load (1.0ms)[0m  SELECT  "pages".* FROM "pages" WHERE "pages"."permalink" = ? AND "pages"."visible" = ?  ORDER BY "pages"."id" ASC LIMIT 1  [["permalink", "first"], ["visible", "t"]]
+  [1m[36mSection Load (0.0ms)[0m  [1mSELECT "sections".* FROM "sections" WHERE "sections"."page_id" = ? AND "sections"."visible" = ?  ORDER BY sections.position ASC[0m  [["page_id", 1], ["visible", "t"]]
+  Rendered public/show.html.erb within layouts/public (5.0ms)
+  [1m[35mSubject Load (0.0ms)[0m  SELECT "subjects".* FROM "subjects" WHERE "subjects"."visible" = ?  ORDER BY subjects.position ASC  [["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 2], ["visible", "t"]]
+  [1m[35mPage Load (1.0ms)[0m  SELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC  [["subject_id", 3], ["visible", "t"]]
+  [1m[36mPage Load (0.0ms)[0m  [1mSELECT "pages".* FROM "pages" WHERE "pages"."subject_id" = ? AND "pages"."visible" = ?  ORDER BY pages.position ASC[0m  [["subject_id", 1], ["visible", "t"]]
+  Rendered layouts/_navigation.html.erb (21.0ms)
+Completed 200 OK in 142ms (Views: 134.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/subjects" for ::1 at 2016-04-27 17:45:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SubjectsController#index as HTML
+Redirected to http://localhost:3000/access/login
+Filter chain halted as :confirm_logged_in rendered or redirected
+Completed 302 Found in 51ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/access/login" for ::1 at 2016-04-27 17:45:34 +0530
+Processing by AccessController#login as HTML
+  Rendered access/login.html.erb within layouts/admin (25.0ms)
+Completed 200 OK in 1142ms (Views: 1139.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/issues" for ::1 at 2016-04-27 17:45:35 +0530
+
+ActionController::RoutingError (No route matches [GET] "/issues"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (87.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (3575.8ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (2874.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (6201.9ms)
+
+
+Started GET "/issues" for ::1 at 2016-04-27 17:47:33 +0530
+
+ActionController::RoutingError (No route matches [GET] "/issues"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/RailsInstaller/Ruby2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby2.2.0/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby2.2.0/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (3282.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (2194.5ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/RailsInstaller/Ruby2.2.0/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (5131.4ms)

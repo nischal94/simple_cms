@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'public/index'
+
+  get 'public/show'
+
   # get 'admin_users/index'
   # get 'admin_users/new'
   # get 'admin_users/edit'
@@ -7,8 +11,11 @@ Rails.application.routes.draw do
   # get 'access/index'
   # get 'access/login'
 
-  root "demo#index"
+  # root "demo#index"
 
+  root "public#index"
+
+  get 'show/:permalink', :to => 'public#show'
   get 'admin', :to => "access#index"
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
@@ -32,7 +39,7 @@ Rails.application.routes.draw do
   # get 'subjects/edit'
   # get 'subjects/delete'
   # root 'demo#index'
-  #root "public#index"
+  #
 
   get 'show/:permalink', :to => 'public#show'
   get 'admin', :to => "access#index"
